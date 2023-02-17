@@ -1,0 +1,18 @@
+version: "2"
+services:
+  main:
+    container_name: main-api
+    image: node:lts-alpine
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./:/home/node/app
+    expose:
+      - "4000"
+    ports:
+      - "4000:4000"
+    command: "node app.js"
+    stdin_open: true
+    tty: true
